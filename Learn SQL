@@ -1,0 +1,432 @@
+CREATE DATABASE TUBES_MDI;
+USE TUBES_MDI;
+
+CREATE TABLE `employees` (
+  `employee_id` INT(4) PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `gender` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `contact_name` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `salary` INT(10)
+);
+
+INSERT INTO `employees` (`employee_id`, `name`, `gender`, `address`, `contact_name`, `phone`, `email`, `salary`) 
+VALUES 
+(0001, 'John Doe', 'Male', '123 Main St, Anytown', 'john Doe', '555-1234', 'john.doe@email.com', 5000),
+(0002, 'Jane Smith', 'Female', '456 Elm St, Anytown', 'Jane Smith', '555-5678', 'jane.smith@email.com', 7000),
+(0003, 'Bob Johnson', 'Male', '789 Oak St, Anytown', 'Sarah Lee', '555-9012', 'bob.johnson@email.com', 3000),
+(0004, 'Alice Davis', 'Female', '321 Maple St, Anytown', 'Tom Brown', '555-3456', 'alice.davis@email.com', 2000),
+(0005, 'Charlie Miller', 'Male', '654 Pine St, Anytown', 'Lucy Wilson', '555-7890', 'charlie.miller@email.com', 3000),
+(0006, 'Hannah Kim', 'Female', '987 Cedar St, Anytown',	'David Lee', '555-2345', 'hannah.kim@email.com', 1000),
+(0007, 'Michael Green', 'Male',	'234 Cherry St Anytown', 'Amy Chen', '555-6789', 'michael.green@email.com', 6000),
+(0008, 'Emily Chen', 'Female', '876 Birch St, Anytown',	'James White', '555-4567', 'emily.chen@email.com', 6400),
+(0009, 'Samuel Lee', 'Male', '567 Walnut St, Anytown', 'Rebecca Johnson', '555-9876', 'samuel.lee@email.com', 3500),
+(0010, 'Olivia Brown', 'Female', '789 Hickory St, Anytown', 'Daniel Kim', '555-3334', 'olivia.brown@email.com', 4200),
+(0011, 'Daniel Kim', 'Male', '321 Willow St, Anytown',	'Sophia Lee', '555-8888', 'daniel.kim@email.com', 6000),
+(0012, 'Sophia Lee', 'Female','654 Magnolia St, Anytown','Ethan Green',	'555-7777', 'sophia.lee@email.com', 5500);
+
+CREATE TABLE emp_normal (
+employee_id INT(4) DEFAULT NULL,
+shift_type VARCHAR(25) NOT NULL
+);
+
+INSERT INTO emp_normal ( employee_id, shift_type)
+VALUES 
+ ('0001', 'Siang'), 
+ ('0002', 'Sore'),
+ ('0003', 'Malam'),
+ ('0004', 'Siang'),
+ ('0005', 'Sore'),
+ ('0006', 'Malam'),
+ ('0007', 'Siang'),
+ ('0008', 'Sore'),
+ ('0009', 'Malam'),
+ ('0010', 'Siang'),
+ ('0011', 'sore'),
+ ('0012', 'malam');
+  
+CREATE TABLE office_supply (
+employee_id INT(4) DEFAULT NULL,
+businessNumber VARCHAR(4) NOT NULL
+);
+
+INSERT INTO office_supply (employee_id, businessNumber)
+VALUES
+ ('0001', '1038'), 
+ ('0002', '1161'),
+ ('0003', '1476'),
+ ('0004', '2105'),
+ ('0005', '2383'),
+ ('0006', '2471'),
+ ('0007', '3228'),
+ ('0008', '6115'),
+ ('0009', '9957'),
+ ('0010', '6003'),
+ ('0011', '9864'),
+ ('0012', '9285');
+  
+
+CREATE TABLE `drink_supplies` (
+  `drinksupplies_id` VARCHAR(10) PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `contact_name` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `employee_id` INT(4) NOT NULL
+);
+
+INSERT INTO drink_supplies (drinksupplies_id, `name`, address, contact_name, phone, email, employee_id)
+VALUES
+(1132, 'Sumber Jaya',    'Jl. Pelajar no. 123 Bandung',  'Pak Budi', '081234567890', 'sumberjaya@company.com', 0001),
+(1141, 'Sinar Rasa',     'Jl. Merdeka no. 456, Bandung', 'Ibu Ani', '082198765432', 'sinarminumjaya@company.com', 0002),
+(6454, 'Barokah Makmur', 'Jl. Gatot Subroto no. 789 Bandung', 'Pak Anton', '085212345678', 'Makmur1@company.com', 0003),
+(4545, 'Cahaya Bahagia', 'Jl. Setiabudi no. 1011 Bandung', 'Ibu Sinta', '087856789012', 'Cahaya124@company.com', 0004),
+(4342, 'Rezeki Bersama', 'Jl. Pasteur no. 1314 Bandung', 'Pak Dadang', '081188990022', 'rezekiBersama232@company.com', 0005),
+(4564, 'Sumber Berkat',  'Jl. Dago no. 1617 Bandung', 'Ibu Nita', '082221314152', 'berkat512@company.com', 0006),
+(1245, 'Anugerah Jaya',  'Jl. Riau no. 1920 Bandung', 'Pak Rio', '0856547890', 'anugrahjaya412@company.com', 0007),
+(5353, 'Berkah Rahmat',  'Jl. Soekarno-Hatta no. 2223 Bandung', 'Ibu Rini', '087789012345', 'barkahrahmat123@company.com', 0008),
+(1251, 'Rizki Abadi',    'Jl. Cihampelas no. 2526 Bandung', 'Pak Udin', '081823456789', 'rizkiabadi123@company.com', 0009),
+(1457, 'Sumber Rejeki',  'Jl. Setiabudi no. 2829 Bandung', 'Ibu Merry', '082956789012', 'sumberrezeki123@company.com', 0010),
+(5235, 'Hidayah',        'Jl. Merdeka no. 3132 Bandung', 'Pak Charles', '085289012345', 'Hidayahminum@company.com', 0011),
+(8567, 'Barokah',        'Jl. Gatot Subroto no.3435 Bandung', 'Ibu Clara', '087721314152', 'barokah@company.com', 0012);
+
+CREATE TABLE `drink` (
+  `drink_id` INT(10) PRIMARY KEY,
+  `drinksupplies_id` INT(10) NOT NULL ,
+  `name` VARCHAR(255) NOT NULL,
+  `price` INT(10) NOT NULL,
+  `size` VARCHAR(255) NOT NULL
+);
+
+INSERT INTO drink (drink_id, drinksupplies_id, `name`, price, size)
+VALUES
+(1111, '1132', 'Cola', '250', QUOTE('350 (ml)')),
+(1222, '1141', 'Orange Juice', '300', QUOTE('250 (ml)')),
+(1233, '6454', 'Iced Coffee (Latte)', '320', QUOTE('350 (ml)')),
+(1344, '4545', 'Hot Chocolate', '280', QUOTE('300 (ml)')),
+(1455, '4342', 'Sparkling Water (Lemon)', '200', QUOTE('330 (ml)')),
+(1566, '4564', 'Green Tea', '220', QUOTE('300 (ml)')),
+(1677, '1245', 'Lemonade', '250', QUOTE('350 (ml)')),
+(1788, '5353', 'Espresso', '270', QUOTE('100 (ml)')),
+(1899, '1251', 'Milk', '150', QUOTE('250 (ml)')),
+(1910, '1457', 'Fruit Punch', '260', QUOTE('350 (ml)')),
+(1010, '5235', 'Water', '100', QUOTE('500 (ml)')),
+(1011, '8567', 'Apple Juice', '230', QUOTE('250 (ml)')),
+(1012, '7351', 'Iced Tea', '210', QUOTE('350 (ml)'));
+
+CREATE TABLE drink_order (
+drink_id INT(6) DEFAULT NULL,
+order_id INT(6) DEFAULT NULL
+);
+
+INSERT INTO drink_order (drink_id, order_id)
+VALUES
+(1111, 215001),
+(1222, 215002),
+(1233, 215003),
+(1344, 215004),
+(1455, 215005),
+(1566, 215006),
+(1677, 215007),
+(1788, 215008),
+(1899, 215009),
+(1910, 215010),
+(1011, 215011),
+(1011, 215012),
+(1012, 215013);
+
+
+CREATE TABLE `clothes_supplies` (
+  `clothessupplies_id` INT(4) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `contact_name` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `size` VARCHAR(5) NOT NULL,
+  employee_id INT(10) NOT NULL
+);
+
+INSERT INTO clothes_supplies (clothessupplies_id, `name`, address, contact_name, phone, email, size, employee_id)
+VALUES
+(1111, 'Toko Zara Ahmad', 'Jl. pak haji lupa no 1945', 'Ahmad Zahra', '555-1234', 'zahra123@comapny.com', 'S', 0001),
+(1111, 'Toko Zara Ahmad', 'Jl. pak haji lupa no 1945', 'Ahmad Zahra', '555-1234', 'zahra123@comapny.com', 'M', 0001),
+(1111, 'Toko Zara Ahmad', 'Jl. pak haji lupa no 1945', 'Ahmad Zahra', '555-1234', 'zahra123@comapny.com', 'L', 0001),
+(1112, 'Toko Pakaian aja', 'Jl. Kenangan bareng siapa no 1110', 'pakaiaja', '1123124', 'pakaiaja@company.com', 'S', 0002),
+(1112, 'Toko Pakaian aja', 'Jl. Kenangan bareng siapa no 1110', 'pakaiaja', '1123124', 'pakaiaja@company.com', 'M', 0002),
+(1112, 'Toko Pakaian aja', 'Jl. Kenangan bareng siapa no 1110', 'pakaiaja', '1123124', 'pakaiaja@company.com', 'L', 0002),
+(1113, 'Toko mbah ojan', 'Jl. Dipatiukur no 29', 'TokoOjan', '55123124', 'ojan@company.com', 'S', 0003),
+(1113, 'Toko mbah ojan', 'Jl. Dipatiukur no 29', 'TokoOjan', '55123124', 'ojan@company.com', 'M', 0003),
+(1113, 'Toko mbah ojan', 'Jl. Dipatiukur no 29', 'TokoOjan', '55123124', 'ojan@company.com', 'L', 0003),
+(1114, 'Toko tatap mata ojan', 'Jl. Sekeloa no 2', 'Tatapojan', '1613216', 'ojanadamata@company.com', 'S', 0004),
+(1114, 'Toko tatap mata ojan', 'Jl. Sekeloa no 2', 'Tatapojan', '1613216', 'ojanadamata@company.com', 'M', 0004),
+(1114, 'Toko tatap mata ojan', 'Jl. Sekeloa no 2', 'Tatapojan', '1613216', 'ojanadamata@company.com', 'L', 0004),
+(1115, 'Toko bayu shark', 'Jl. Cihampelas no 1912', 'Tokobayyu', '02865469', 'tokobayuu12321@company.com', 'S', 0005),
+(1115, 'Toko bayu shark', 'Jl. Cihampelas no 1912', 'Tokobayyu', '02865469', 'tokobayuu12321@company.com', 'M', 0005),
+(1115, 'Toko bayu shark', 'Jl. Cihampelas no 1912', 'Tokobayyu', '02865469', 'tokobayuu12321@company.com', 'L', 0005),
+(1116, 'Toko tangi', 'Jl bareng pacar no 122', 'Tangishop', '085131322', 'tangishop1234@company.com', 'S', 0006),
+(1116, 'Toko tangi', 'Jl bareng pacar no 122', 'Tangishop', '085131322', 'tangishop1234@company.com', 'M', 0006),
+(1116, 'Toko tangi', 'Jl bareng pacar no 122', 'Tangishop', '085131322', 'tangishop1234@company.com', 'L', 0006),
+(1117, 'Toko bu haji', 'Jl lupa namanya no 10', 'Buhaji', '0821516132', 'buhajibaju@company.com', 'S', 0007),
+(1117, 'Toko bu haji', 'Jl lupa namanya no 10', 'Buhaji', '0821516132', 'buhajibaju@company.com', 'M', 0007),
+(1117, 'Toko bu haji', 'Jl lupa namanya no 10', 'Buhaji', '0821516132', 'buhajibaju@company.com', 'L', 0007),
+(1118, 'Toko pak haji', 'Jl hutan mangruf no 1', 'Pakhaji', '082646646', 'pakhajibaju@company.com', 'S', 0008), 
+(1118, 'Toko pak haji', 'Jl hutan mangruf no 1', 'Pakhaji', '082646646', 'pakhajibaju@company.com', 'M', 0008),
+(1118, 'Toko pak haji', 'Jl hutan mangruf no 1', 'Pakhaji', '082646646', 'pakhajibaju@company.com', 'L', 0008),
+(1119, 'Toko punten bu', 'Jl permisi aja no 124', 'Punten', '081354446', 'puntentoko@company.com', 'S', 0009),
+(1119, 'Toko punten bu', 'Jl permisi aja no 124', 'Punten', '081354446', 'puntentoko@company.com', 'M', 0009),
+(1119, 'Toko punten bu', 'Jl permisi aja no 124', 'Punten', '081354446', 'puntentoko@company.com', 'L', 0009),
+(1120, 'Toko tak ada yang abadi', 'Jl disana aja no 63', 'Abadi baju', '08131138', 'Abadibaju@company.com', 'S', 0010),
+(1120, 'Toko tak ada yang abadi', 'Jl disana aja no 63', 'Abadi baju', '08131138', 'Abadibaju@company.com', 'M', 0010),
+(1120, 'Toko tak ada yang abadi', 'Jl disana aja no 63', 'Abadi baju', '08131138', 'Abadibaju@company.com', 'L', 0010),
+(1121, 'Suka jaya baju', 'Jl jayaa jaya jaya no41', 'Jaya baju', '0813165163', 'jayabaju@company.com', 'S', 0011),
+(1121, 'Suka jaya baju', 'Jl jayaa jaya jaya no41', 'Jaya baju', '0813165163', 'jayabaju@company.com', 'M', 0011),
+(1121, 'Suka jaya baju', 'Jl jayaa jaya jaya no41', 'Jaya baju', '0813165163', 'jayabaju@company.com', 'L', 0011),
+(1122, 'Sempurna baju', 'Jl sempro jaya No 81', 'Sempurna', '0843646', 'sempurna@company.com', 'S', 0012),
+(1122, 'Sempurna baju', 'Jl sempro jaya No 81', 'Sempurna', '0843646', 'sempurna@company.com', 'M', 0012),
+(1122, 'Sempurna baju', 'Jl sempro jaya No 81', 'Sempurna', '0843646', 'sempurna@company.com', 'L', 0012);
+
+
+CREATE TABLE `clothes` (
+  `clothes_id` INT(4) NOT NULL,
+  `clothessupplies_id` INT(4) NOT NULL,
+   `name_brand` VARCHAR(255) NOT NULL,
+  `price` INT(10) NOT NULL,
+  `size` VARCHAR(4) NOT NULL
+);
+
+INSERT INTO clothes (clothes_id, clothessupplies_id, `name_brand`, price, size)
+VALUES
+(101, 1111, 'blackPink', 1000, 'S'),
+(101, 1111, 'blackPink', 1000, 'M'),
+(101, 1111, 'blackPink', 1000, 'L'),
+(102, 1112, 'Zsa', 74, 'S'),
+(102, 1112, 'Zsa', 74, 'M'),
+(102, 1112, 'Zsa', 74, 'L'),
+(103, 1113, 'Zara', 100, 'S'),
+(103, 1113, 'Zara', 100, 'M'),
+(103, 1113, 'Zara', 100, 'L'),
+(104, 1114, 'Ninja', 20, 'S'),
+(104, 1114, 'Ninja', 20, 'M'),
+(104, 1114, 'Ninja', 20, 'L'),
+(105, 1115, 'Zumaru', 15, 'S'),
+(105, 1115, 'Zumaru', 15, 'M'),
+(105, 1115, 'Zumaru', 15, 'L'),
+(106, 1117, 'Knikage', 9, 'S'),
+(106, 1117, 'Knikage', 9, 'M'),
+(106, 1117, 'Knikage', 9, 'L'),
+(107, 1118, 'Mikazu', 18, 'S'),
+(107, 1118, 'Mikazu', 18, 'M'),
+(107, 1118, 'Mikazu', 18, 'L'),
+(108, 1119, 'Miracle', 21, 'S'),
+(108, 1119, 'Miracle', 21, 'M'),
+(108, 1119, 'Miracle', 21, 'L'),
+(109, 1120, 'aerostreet', 13, 'S'),
+(109, 1120, 'aerostreet', 13, 'M'),
+(109, 1120, 'aerostreet', 13, 'L'),
+(110, 1121, 'H&M', 89, 'S'),
+(110, 1121, 'H&M', 89, 'M'),
+(110, 1121, 'H&M', 89, 'L'),
+(111, 1122, 'Nike', 119, 'S'),
+(111, 1122, 'Nike', 119, 'M'),
+(111, 1122, 'Nike', 119, 'L'),
+(112, 1123, 'Adidas', 150, 'S'),
+(112, 1123, 'Adidas', 150, 'M'),
+(112, 1123, 'Adidas', 150, 'L');
+
+CREATE TABLE size (
+  ukuran_id INT PRIMARY KEY AUTO_INCREMENT,
+  ukuran_number VARCHAR(255) NOT NULL
+);
+
+INSERT INTO size (ukuran_number) 
+VALUES
+  ('S'),
+  ('M'),
+  ('L');
+  
+CREATE TABLE clothes_order (
+clothes_id INT(6) DEFAULT NULL,
+order_id INT(6) DEFAULT NULL
+);
+
+INSERT INTO clothes_order (clothes_id, order_id)
+VALUES
+(101, 199001),
+(102, 199002),
+(103, 199003),
+(104, 199004),
+(105, 199005),
+(106, 199006),
+(107, 199007),
+(108, 199008),
+(109, 199009),
+(110, 199010),
+(112, 199011),
+(113, 199012),
+(114, 199013);
+
+CREATE TABLE `food_supplies` (
+  `foodsupplies_id` INT(10) PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `contact_name` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  employee_id INT(4) NOT NULL
+);
+
+INSERT INTO food_supplies (foodsupplies_id, `name`, address, contact_name, phone, email, employee_id)
+VALUES
+(001, 'Food Supply Jaya', '123 Main St Anytown', 'John Doe',	'555-123-4567',	'johndoe@company.com', 0001),
+(002, 'Food Supply Sindoro', '456 Elm St Anytown', 'Jane Smith', '555-987-6543', 'janesmith@company.com', 0002),
+(003, 'Food Supply Jameha', '789 Oak St Anytown', 'Bob Johnson', '555-234-7890', 'bobjohnson@company.com', 0003),
+(004, 'Food Supply Demon', '321 Maple St Anytown', 'Alice Brown', '55-567-8901', 'licebrown@company.com', 0004),
+(005, 'Food Supply Equit', '654 Pine St Anytown', 'Charlie Green', '555-345-6789', 'charliegreen@company.com', 0005),
+(006, 'Food Supply Fanjava', '987 Birch St Anytown', 'David White', '555-789-0123', 'davidwhite@company.com', 0006),
+(007, 'Food Supply Gurame', '234 Cedar St Anytown', 'Emily Black', '555-678-9012', 'emilyblack@company.com', 0007),
+(008, 'Food Supply Marapa', '567 Walnut St Anytown', 'Frank Gray', '555-890-1234', 'frankgray@company.com', 0008),
+(009, 'Food Supply Imahame', '890 Cherry St Anytown', 'Grace Orange', '555-012-3456', 'graceorange@company.com', 0009),
+(010, 'Food Supply Jellyfish', '345 Chestnut St Anytown', 'Henry Purple', '555-234-5678', 'henrypurple@company.com', 0010),
+(011, 'Food Supply Patrick', '678 Maple St Anytown', 'Isabel Red', '555-456-7890', 'isabelred@company.com', 0011),
+(012, 'Food Supply Benwhite', '901 Oak St Anytown', 'Jack Blue','555-678-9012',	'jackblue@company.com', 0012);
+
+CREATE TABLE `food` (
+  `food_id` INT(10) PRIMARY KEY,
+  `foodsupplies_id` INT(10) NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `price` INT(10) NOT NULL,
+  `quantity_item` VARCHAR(15) NULL
+);
+
+
+INSERT INTO food (food_id, foodsupplies_id, `name`, price, quantity_item)
+VALUES
+(122001, 001, 'nasi goreng', 	'15000', '250 gram'),
+(122003, 002, 'Sushi',       	'35000', '8 sushi'),
+(122005, 003, 'Pizza',        	'85000', '6 Slice'),
+(122007, 004, 'Spagetti',       '40000', '200 gram'),  -- Added missing quantity_item
+(122009, 005, 'Kentang Goreng', '10000', '100 gram'),
+(122011, 006, 'Kebab', 		'15000', '200 gram'),
+(122013, 007, 'Kwutiaw', 	'25000', '300 gram'),
+(122015, 008, 'Ketoprak', 	'10000', '200 gram'),
+(122017, 009, 'Bakso', 		'20000', '150 gram'),
+(122019, 010, 'Bika ambon', 	'15000', '150 gram'),
+(122021, 011, 'Pempek', 	'20000', '10 slice'),
+(122024, 012, 'Steak', 		'1000000', '500 gram');
+
+CREATE TABLE food_order (
+food_id INT(6) DEFAULT NULL,
+order_id INT(6) DEFAULT NULL
+);
+
+INSERT INTO food_order (food_id, order_id)
+VALUES
+(122001, 215001),
+(122003, 215002),
+(122005, 215003),
+(122007, 215004),
+(122009, 215005),
+(1220011, 215006),
+(1220013, 215007),
+(1220015, 215008),
+(1220017, 215009),
+(1220019, 215010),
+(1220021, 215011),
+(1220024, 215012),
+(1220013, 215013);
+
+CREATE TABLE `order_item` (
+  `order_id` INT(6) PRIMARY KEY,
+  `customer_id` INT(6) DEFAULT NULL,
+  `order_name` VARCHAR(255) NOT NULL
+);
+
+INSERT INTO order_item (order_id, order_name, customer_id)
+VALUES
+(215001, 'Pablo Escobar', 199001),
+(215002, 'Ojan jarang pulang', 199002),
+(215003, 'Bang jali', 199003),
+(215004, 'Hulk', 199004),
+(215005, 'Iron mamen', 199005),
+(215006, 'Aceu', 199006),
+(215007, 'Biubiu', 199007),
+(215008, 'Akanamaru', 199008),
+(215009, 'Jhon cena', 199009),
+(215010, 'Mcregor', 199010),
+(215011, 'Balwin', 199011),
+(215012, 'Bakar', 199012),
+(215013, 'Contasinopel', 199013),
+(215014, 'Cias', 199014);
+
+
+CREATE TABLE `delivery` (
+  `delivery_id` INT(20) PRIMARY KEY,
+  `customer_id` VARCHAR(299) NOT NULL,
+  `employee_id` VARCHAR(299) NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `price` INT(10) NOT NULL
+);
+
+INSERT INTO delivery (delivery_id, customer_id, employee_id, `name`, address, phone, price)
+VALUES
+(150001, 199001, 0001, 'Hartanto', 'Jl. mangga 2 no 5', '08123456', 35000),
+(150002, 199002, 0002, 'Mega', 'Jl. Salak 1 no 10', '0843131', 71000),
+(150003, 199003, 0003, 'Rizal', 'Jl. Manggarai 5 no 17', '0831312', 50000),
+(150004, 199004, 0004, 'Pablo', 'Jl. Dipatiukur  no 13', '0865546', 31000),
+(150005, 199005, 0005, 'Agus', 'Jl. Sekeloa  no 91', '08354546', 23000),
+(150006, 199006, 0006, 'Nando', 'Jl. champelas  no 12', '0835138', 200000),
+(150007, 199007, 0007, 'Jonathan', 'Jl. diklat  no 84', '08445665', 98000),
+(150008, 199008, 0008, 'Marcel', 'Jl. mangga 2 no 51', '08654644', 71000),
+(150009, 199009, 0009, 'Michelle', 'Jl. mangga 2 no 91', '08646546', 12000),
+(150010, 199010, 0010, 'Nindi', 'Jl. mangga 2 no 42', '08654646', 15000),
+(150011, 199011, 0011, 'Septia', 'Jl. nangka 12 no 7', '08498446', 16000),
+(150012, 199012, 0012, 'Amanda', 'Jl. mangga 4 no 10', '0864664', 19000);
+
+
+CREATE TABLE `customer` (
+  `customer_id` INT(6) PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL
+);
+
+INSERT INTO customer (customer_id, `name`, address, phone)
+VALUES
+(199001, 'Jonah','Jl. mangga 2 no 5', 08132456789),
+(199002, 'Jordan', 'Jl. Salak 1 no 10', 0878965423),
+(199003, 'Lebron', 'Jl. Manggarai 5 no 17', 087985631),
+(199004, 'Tupai', 'Jl. Dipatiukur  no 13', 08643512164),
+(199005, 'Chris', 'Jl. Sekeloa  no 91', 08465312654),
+(199006, 'Jeremy', 'Jl. champelas  no 12', 08654136316),
+(199007, 'Kevin', 'Jl. diklat  no 84', 0864531654),
+(199008, 'Sigit', 'Jl. mangga 2 no 51', 0864163165),
+(199009, 'Victon', 'Jl. mangga 2 no 91', 0894865161),
+(199010, 'Ilham', 'Jl. mangga 2 no 42', 0846634656),
+(199011, 'Richard', 'Jl. nangka 12 no 7', 0844619646),
+(199012, 'Messi', 'Jl. mangga 4 no 10', 0864567645);
+
+CREATE TABLE order_detail (
+order_id INT(6) DEFAULT NULL,
+company_id INT(6) DEFAULT NULL
+);
+
+INSERT INTO order_detail (order_id, company_id)
+VALUES
+(215001, 0001),
+(215002, 0002),
+(215003, 0003),
+(215004, 0004),
+(215005, 0005),
+(215006, 0006),
+(215007, 0007),
+(215008, 0008),
+(215009, 0009),
+(215010, 0010),
+(215011, 0011),
+(215012, 0012);
