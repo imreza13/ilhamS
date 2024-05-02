@@ -1,5 +1,5 @@
-CREATE DATABASE TUBES_MDI;
-USE TUBES_MDI;
+CREATE DATABASE Learn;
+USE LearnI;
 
 CREATE TABLE `employees` (
   `employee_id` INT(4) PRIMARY KEY,
